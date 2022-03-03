@@ -23,7 +23,10 @@
             </template>
             <!-- 遍历里面的item -->
             <template v-for="subItem in item.children" :key="subItem.id">
-              <el-menu-item :index="subItem.id + ''">
+              <el-menu-item
+                :index="subItem.id + ''"
+                @click="handleMenus(subItem)"
+              >
                 <i v-if="subItem.icon" :class="subItem.icon"></i>
                 <span>{{ subItem.name }}</span>
               </el-menu-item>
@@ -45,6 +48,8 @@
 <script lang="ts">
 import { defineComponent, computed } from 'vue'
 import { useStore } from '@/store'
+import { useRouter } from 'vue-router'
+import router from '@/router'
 
 export default defineComponent({
   props: {
@@ -55,8 +60,15 @@ export default defineComponent({
   },
   setup() {
     const store = useStore()
+    const router = useRouter()
     const userMenus = computed(() => store.state.login.userInfoMenu)
-    return { userMenus }
+    // 动态路由
+    const handleMenus = (val: any) => {
+      router.push({
+        path: val.url ?? '/not-found'
+      })
+    }
+    return { userMenus, handleMenus }
   }
 })
 </script>

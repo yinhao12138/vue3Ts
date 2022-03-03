@@ -33,7 +33,13 @@ const loginMoudle: Module<IloginState, IRootState> = {
     //存放用户菜单
     getUserInfoMenu(state, userInfoMenu: any) {
       state.userInfoMenu = userInfoMenu
-      mapMenuRouter(userInfoMenu)
+      // userMenus => routes
+      const dynamicRoutes = mapMenuRouter(userInfoMenu)
+      // console.log(routes)
+      // 将routes => router.main.children 动态路由
+      dynamicRoutes.forEach((item) => {
+        router.addRoute('main', item)
+      })
     }
   },
   actions: {

@@ -1,6 +1,6 @@
 <template>
-  <div class="chart">
-    <h2>chart</h2>
+  <div class="chat">
+    <h2>chat</h2>
   </div>
 </template>
 
@@ -8,7 +8,7 @@
 import { defineComponent } from 'vue'
 
 export default defineComponent({
-  name: 'chart',
+  name: 'chat',
   setup() {
     return {}
   }

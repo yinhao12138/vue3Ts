@@ -12,9 +12,23 @@ export function mapMenuRouter(userInfoMenu: any[]): RouteRecordRaw[] {
     const route = require('../router/main' + item.split('.')[1])
     allRoutes.push(route.default)
   })
-  console.log(allRoutes)
+  // console.log(allRoutes)
 
-  // 2.根据菜单需要添加的routes
+  // 2.根据菜单需要添加的routes 递归
+  const _recursion = (menus: any[]) => {
+    for (const menu of menus) {
+      if (menu.type === 2) {
+        const route = allRoutes.find((item) => item.path === menu.url)
+        if (route) {
+          routes.push(route)
+        }
+      } else {
+        _recursion(menu.children)
+      }
+    }
+  }
+
+  _recursion(userInfoMenu)
 
   return routes
 }
