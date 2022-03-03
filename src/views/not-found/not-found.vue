@@ -39,22 +39,24 @@
           Please check that the URL you entered is correct, or click the button
           below to return to the homepage.
         </div>
-        <a href="" class="bullshit__return-home">Back to home</a>
+        <a href="" class="bullshit__return-home">{{ message }}</a>
       </div>
     </div>
   </div>
 </template>
 
 <script lang="ts">
-import { defineComponent, computed } from 'vue'
+import { defineComponent, computed, ref } from 'vue'
 
 export default defineComponent({
   setup() {
+    const message = ref('Back to home')
     const notFoundMes = computed(() => {
       return 'The webmaster said that you can not enter this page...'
     })
     return {
-      notFoundMes
+      notFoundMes,
+      message
     }
   }
 })
