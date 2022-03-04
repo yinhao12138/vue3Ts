@@ -62,8 +62,8 @@ export default defineComponent({
     const store = useStore()
     const router = useRouter()
     const userMenus = computed(() => store.state.login.userInfoMenu)
-    // 动态路由
     const handleMenus = (val: any) => {
+      // console.log(val)
       router.push({
         path: val.url ?? '/not-found'
       })

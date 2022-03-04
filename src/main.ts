@@ -11,8 +11,8 @@ import { globalRegister } from './global'
 const app: App = createApp(rontApp)
 // globalRegister(app)
 // use 里可以执行函数默认传入app
-createApp(rontApp).use(store).use(router).use(globalRegister).mount('#app')
 setupStore()
+createApp(rontApp).use(store).use(router).use(globalRegister).mount('#app')
 //全局引入
 // import ElementPlus from 'element-plus'
 // import 'element-plus/dist/index.css'

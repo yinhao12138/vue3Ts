@@ -1,7 +1,7 @@
 <template>
   <div class="main">
     <el-container class="main-content">
-      <el-aside :width="isCollapse ? '60px' : '180px'">
+      <el-aside :width="isCollapse ? '60px' : '200px'">
         <nav-menu :collapse="isCollapse" />
       </el-aside>
       <el-container class="page">
@@ -59,8 +59,11 @@ export default defineComponent({
   height: calc(100% - 48px);
 
   .page-info {
+    padding: 20px;
     background-color: #fff;
-    border-radius: 5px;
+    border-radius: 10px;
+    box-shadow: 0px 2px 4px 4px rgba(54, 54, 54, 0.03);
+    margin-bottom: 20px;
   }
 }
 
